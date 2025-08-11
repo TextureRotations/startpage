@@ -1,80 +1,167 @@
- <html>
- <head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
-	<script src="https://kit.fontawesome.com/f00c14539b.js" crossorigin="anonymous"></script>
-	<title>Startpage</title>
- </head>
- <body>
-	<div class="container">
-		<div id="time" class="time"></div>
-		
-		<form method="GET" action="http://www.google.com/search">
-			<input name="as_q" class="search-field" autofocus>
-			<button type="submit" class="search-submit" value="" style="fill: white"></button>
-		</form>
-		
-		<div class="box">
-			<div class="box-container">
-				<div class="heading">Entertainment</div>
-				<a href="https://www.youtube.com/" target="_blank">
-					<div class="link" tabindex="1">Youtube</div>
-				</a>
-				<a href="https://www.soundcloud.com/" target="_blank">
-					<div class="link" tabindex="2">Soundcloud</div>
-				</a>
-				<a href="https://www.reddit.com/" terget="_blank">
-					<div class="link" tabindex="3">Reddit</div>
-				</a>
-			</div>
-			<div class="box-container">
-				<div class="heading">Development</div>
-				<a href="https://github.com/" target="_blank">
-					<div class="link" tabindex="8">Github</div>
-				</a>
-			</div>
-			<div class="box-container">
-				<div class="heading">Creative</div>
-				<a href="https://de.freepik.com/" target="_blank">
-					<div class="link" tabindex="9">Freepik</div>
-				</a>
-				<a href="https://unsplash.com/" target="_blank">
-					<div class="link" tabindex="10">Unsplash</div>
-				</a>
-				<a href="https://themeforest.net/" target="_blank">
-					<div class="link" tabindex="11">Themeforest</div>
-				</a>
-				<a href="https://www.dafont.com/de/" target="_blank">
-					<div class="link" tabindex="12">dafont</div>
-				</a>
-			</div>
-			<div class="box-container">
-				<div class="heading" >Else</div>
-				<a href="" target="_blank">
-					<div class="link" tabindex="13">Sudkurier</div>
-				</a>
-				<a href="" target="_blank">
-					<div class="link" tabindex="14">Comics</div>
-				</a>
-				<a href="" target="_blank">
-					<div class="link" tabindex="15"></div>
-				</a>
-				<a href="" target="_blank">
-					<div class="link" tabindex="16">Amazon</div>
-				</a>
-			</div>
-		</div>
-	</div>
-	
-	
-	<div class="wave-container">
-		<div class="wave wave1"></div>
-		<div class="wave wave2"></div>
-		<div class="wave wave3"></div>
-		<div class="wave wave4"></div>
-	</div>
-	
-	<script src="script.js"></script>
-	
- </body>
- </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Skeet.cc</title>
+<style>
+  /* Reset */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0; padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1e1e1e;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #ddd;
+  }
+
+  .table-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background: #151515;
+    border-radius: 0px;
+    padding: 28px 24px 24px 24px;
+    max-width: 440px;
+    min-height: 280px;
+    width: 90vw;
+
+    border: 1px solid #101010;
+    border-top: none;
+
+    box-shadow:
+      0 0 0 1px #323232,
+      0 0 0 3px #282828,
+      0 0 0 4px #323232,
+      0 0 0 5px #040404;
+  }
+
+  /* Gradient top border */
+  .table-container::before {
+    content: "";
+    position: absolute;
+    top: 1px;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(145deg, #2c8ab0, #664f94, #873487, #87912c);
+  }
+
+  .input-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .input-box form {
+    width: auto;
+  }
+
+  .input-box input {
+    background: #222222;
+    border: 1px solid #101010;
+    border-radius: 0px;
+    padding: 8px 12px;
+    color: #b2b2b2;
+    width: 200px;
+    font-size: 10px;
+
+    /* Black text outline */
+    text-shadow:
+      -1px -1px 0 #000,
+       1px -1px 0 #000,
+      -1px  1px 0 #000,
+       1px  1px 0 #000;
+
+    outline-offset: 2px;
+    outline-color: #7bc215;
+    caret-color: #cbd0f7;
+
+    transition: outline-color 0.3s ease;
+  }
+
+  .input-box input:focus {
+    outline: none;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* adjustable gap between buttons */
+    width: 200px; /* same as input width */
+  }
+
+  .buttons button {
+    width: 100%;
+    padding: 8px 0;
+    background: linear-gradient(to top, #181818, #202020); /* darker bottom to normal top */
+    border: 1px solid #232323; /* first border */
+    box-shadow: 0 0 0 1px #101010; /* second 1px border */
+    color: #b2b2b2;
+    font-size: 10px;
+    cursor: pointer;
+    text-shadow:
+      -1px -1px 0 #000,
+       1px -1px 0 #000,
+      -1px  1px 0 #000,
+       1px  1px 0 #000;
+    transition: background-color 0.3s ease;
+  }
+
+
+</style>
+</head>
+<body>
+  <div class="table-container">
+    <div class="input-box">
+      <form id="searchForm" action="https://www.google.com/search" method="GET" target="_blank">
+        <input
+          type="search"
+          name="q"
+          id="searchInput"
+          placeholder="Search the web..."
+          autocomplete="off"
+          spellcheck="false"
+          aria-label="Web search"
+        />
+      </form>
+    </div>
+
+    <div class="buttons">
+      <button type="button" id="searchBtn">Search</button>
+      <button type="button" id="quitBtn">Quit</button>
+    </div>
+  </div>
+
+<script>
+  const searchBtn = document.getElementById('searchBtn');
+  const quitBtn = document.getElementById('quitBtn');
+  const searchForm = document.getElementById('searchForm');
+
+  searchBtn.addEventListener('click', () => {
+    // Submit the form, which will open Google search with the input value in a new tab
+    if (searchForm.q.value.trim() !== '') {
+      searchForm.submit();
+    } else {
+      alert('Please enter a search query.');
+    }
+  });
+
+  quitBtn.addEventListener('click', () => {
+    // Try to close the current tab/window
+    window.close();
+  });
+</script>
+</body>
+</html>
+
